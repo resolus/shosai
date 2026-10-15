@@ -1,0 +1,6 @@
+# puma-dev 等 HTTPS 終端プロキシ経由のときのみ必要 (本番では不要)
+APP_ORIGIN=https://shosai.lvh.me
+GOOGLE_CLIENT_ID=xxxxxxxx.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=xxxxxxxx
+# `openssl rand -base64 32` で生成
+SESSION_SECRET=change-me

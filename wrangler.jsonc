@@ -1,0 +1,31 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "shosai",
+	"main": "src/index.tsx",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"observability": {
+		"enabled": true
+	},
+	// public/ を静的配信 (Tailwind の出力 /static/style.css など)
+	"assets": {
+		"directory": "./public"
+	},
+	// dev 起動時・src 変更時・deploy 前に CSS をビルド
+	"build": {
+		"command": "pnpm build:css",
+		"watch_dir": "src"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "shosai-db",
+			"database_id": "d7efc36d-1602-4e73-9cec-8436183452d1",
+			"migrations_dir": "migrations"
+		}
+	]
+	// シークレット（GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / SESSION_SECRET）は
+	// ローカル: .dev.vars、本番: `wrangler secret put` で設定
+}
