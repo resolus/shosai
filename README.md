@@ -1,1 +1,1 @@
-# shosai-cms
+# shosai
